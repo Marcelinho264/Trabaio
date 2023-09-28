@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Adivinhe o personagem</h1>
+  <label>Insira a primeira letra do nome em maiusculo</label>
+  <p id="title"></p>
+  <input type="text" id="test" placeholder="Digite o nome do campeão ..">
+  <button onclick="sendresponse()">Enviar</button>
+</body>
+<script>
+  const apiUrl = "http://localhost:8080/getChampion"
+  let res = ""
+  consulta()
+
+  function consulta() {
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        res = data.message.name
+        console.log(data.message.title);
+        const resultado = document.getElementById("title");
+        resultado.innerHTML = data.message.title;
+      })
+      .catch(error => {
+        console.error("Ocorreu um erro ao consultar a API:", error);
+      });
+  }
+
+  function sendresponse() {
+    const response = document.getElementById("test").value
+
+    if (response == res) {
+      alert("Acertou")
+      consulta()
+    } else {
+      alert("Errou")
+    }
+  }
+
+</script>
+
+</html>
