@@ -24,6 +24,7 @@ const inicio = () => {
     for (const cell of cellElements) {
         cell.classList.remove('circle')
         cell.classList.remove('x')
+        cell.style.backgroundImage = ''
         cell.removeEventListener('click', handleClick)
         cell.addEventListener("click", handleClick, {once: true})
     }
@@ -51,14 +52,21 @@ const fimJogo = (empate) => {
     if (empate) {
         mensagemVitoria.innerText = 'Empate!'
     } else {
-        mensagemVitoria.innerText = isCircleTurn ? 'Circulo venceu' : 'X venceu!'
+        mensagemVitoria.innerText = isCircleTurn ? 'Lilia venceu' : 'Kayn venceu!'
     }
 
     mensagem.classList.add('mostra-mensagem-foda')
 } 
 
 const marcador = (cell, classToAdd) => {
-    cell.classList.add(classToAdd)
+    cell.classList.add(classToAdd);
+
+    // Adicione esta parte para trocar a imagem
+    if (classToAdd === 'x') {
+        cell.style.backgroundImage = 'url("https://ddragon.leagueoflegends.com/cdn/13.20.1/img/profileicon/2087.png")';
+    } else if (classToAdd === 'circle') {
+        cell.style.backgroundImage = 'url("https://1.bp.blogspot.com/-X5xw2uJ31zE/YTurK7ErvTI/AAAAAAAB_vk/XIc0qb1nuJ8KYNLWiuG8qDmm5NiXmerpQCLcBGAsYHQ/w200-h200/5075.jpg")';
+    }
 }
 
 const simboloResetado = () => {

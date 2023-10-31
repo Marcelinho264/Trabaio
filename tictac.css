@@ -18,6 +18,7 @@ body {
   align-content: center;
   justify-items: center;
   align-items: center;
+  margin-top: 8vh;
   grid-template-columns: repeat(3, auto);
 }
 
@@ -37,6 +38,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  background-size: 100%
 }
 
 .cell.x,
@@ -68,40 +70,7 @@ body {
   border-right: none;
 }
 
-/* X */
-.cell.x::before,
-.cell.x::after,
-.quadro.x .cell:not(.x):not(.circle):hover::after,
-.quadro.x .cell:not(.x):not(.circle):hover::before {
-  content: "";
-  height: calc(100px * 0.15);
-  width: calc(100px * 0.9);
-  background: white;
-  position: absolute;
-}
 
-.cell.x::before,
-.quadro.x .cell:not(.x):not(.circle):hover::before {
-  transform: rotate(45deg);
-}
-
-.cell.x::after,
-.quadro.x .cell:not(.x):not(.circle):hover::after {
-  transform: rotate(-45deg);
-}
-
-/* Circle */
-.cell.circle::before,
-.cell.circle::after,
-.quadro.circle .cell:not(.x):not(.circle):hover::after,
-.quadro.circle .cell:not(.x):not(.circle):hover::after {
-  content: "";
-  height: calc(100px * 0.9);
-  width: calc(100px * 0.9);
-  background: white;
-  position: absolute;
-  border-radius: 50%;
-}
 
 /* Mensagem de Vitória */
 .mensagem-foda {
